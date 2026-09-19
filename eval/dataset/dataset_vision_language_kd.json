@@ -1,0 +1,307 @@
+{
+  "schema_version": "0.1",
+  "topic": "vision-language knowledge distillation",
+  "notes": "冻结评测集：共 30 篇 2025 年及以后（截至 2026 年）的论文，其中 26 篇知识蒸馏、视觉语言或二者交叉主题论文（should_recall=true），4 篇主题无关负例（should_recall=false）。",
+  "papers": [
+    {
+      "arxiv_id": "2501.17811",
+      "title": "Janus-Pro: Unified Multimodal Understanding and Generation with Data and Model Scaling",
+      "should_recall": true,
+      "gold": {
+        "method": "在 Janus 基础上改进训练策略、扩展训练数据并增大模型规模，用统一框架处理多模态理解与文本到图像生成。",
+        "datasets": ["MMBench", "MMMU", "GenEval", "DPG-Bench"],
+        "results": "Janus-Pro 同时提升视觉理解和文本到图像指令遵循能力，并增强生成稳定性，在多项理解与生成评测上超过前代模型。"
+      }
+    },
+    {
+      "arxiv_id": "2502.13923",
+      "title": "Qwen2.5-VL Technical Report",
+      "should_recall": true,
+      "gold": {
+        "method": "采用原生动态分辨率视觉 Transformer、窗口注意力和绝对时间编码，统一支持图像、文档、长视频、目标定位及视觉代理交互。",
+        "datasets": ["MMMU", "DocVQA", "ChartQA", "Video-MME", "MathVista"],
+        "results": "72B 模型在文档和图表理解上达到领先水平，并可处理长达数小时的视频及秒级事件定位；整体表现可与 GPT-4o、Claude 3.5 Sonnet 竞争。"
+      }
+    },
+    {
+      "arxiv_id": "2504.10479",
+      "title": "InternVL3: Exploring Advanced Training and Test-Time Recipes for Open-Source Multimodal Models",
+      "should_recall": true,
+      "gold": {
+        "method": "采用原生多模态预训练，让模型在同一阶段联合学习图文与纯文本；结合可变视觉位置编码、监督微调、混合偏好优化和测试时扩展。",
+        "datasets": ["MMMU", "MathVista", "MMBench", "Video-MME", "DocVQA"],
+        "results": "InternVL3-78B 在 MMMU 上达到 72.2 分并刷新开源 MLLM 结果，同时在多项任务上接近 GPT-4o、Claude 3.5 Sonnet 和 Gemini 2.5 Pro。"
+      }
+    },
+    {
+      "arxiv_id": "2504.05299",
+      "title": "SmolVLM: Redefining small and efficient multimodal models",
+      "should_recall": true,
+      "gold": {
+        "method": "针对端侧部署系统研究架构、视觉 token 化策略和数据清洗，构建 256M 至 2.2B 参数的紧凑视觉语言模型系列。",
+        "datasets": ["COCO", "TextVQA", "DocVQA", "Video-VQA"],
+        "results": "SmolVLM-256M 推理显存低于 1GB，却超过参数量大 300 倍的 Idefics-80B；2.2B 版本以约一半显存达到同类 VLM 的竞争力。"
+      }
+    },
+    {
+      "arxiv_id": "2504.07615",
+      "title": "VLM-R1: A Stable and Generalizable R1-style Large Vision-Language Model",
+      "should_recall": true,
+      "gold": {
+        "method": "将 DeepSeek-R1 风格的规则奖励强化学习扩展到视觉语言任务，利用具有确定答案的视觉标注构造稳定奖励，并系统分析视觉 RL 训练。",
+        "datasets": ["MathVista", "GeoQA", "ChartQA", "TextVQA", "Object Detection benchmarks"],
+        "results": "RL 训练模型在视觉理解任务上具有竞争力并在泛化上超过 SFT；研究还揭示目标检测中的 reward hacking、OD aha moment 和模型规模效应。"
+      }
+    },
+    {
+      "arxiv_id": "2503.12127",
+      "title": "Hyperbolic Safety-Aware Vision-Language Models",
+      "should_recall": true,
+      "gold": {
+        "method": "提出 HySAC，将安全与不安全图文概念编码为双曲空间中的蕴含层级，用非对称 entailment 损失实现安全意识，而非简单删除不安全知识。",
+        "datasets": ["I2P", "ViSU", "NSFW image-text benchmarks"],
+        "results": "模型同时提升不安全内容识别与安全内容检索能力，可根据查询动态重定向到安全替代结果，并具有更好的可解释性。"
+      }
+    },
+    {
+      "arxiv_id": "2507.07104",
+      "title": "Vision-Language-Vision Auto-Encoder: Scalable Knowledge Distillation from Diffusion Models",
+      "should_recall": true,
+      "gold": {
+        "method": "VLV 自动编码器冻结文本到图像扩散模型解码器，在连续语言表示空间形成信息瓶颈，从预训练扩散模型蒸馏语义，再微调 LLM 解码详细描述。",
+        "datasets": ["CC3M", "LAION", "COCO Captions", "NoCaps"],
+        "results": "主要使用单模态图像即可训练高质量描述器，训练总成本低于 1000 美元，效果可与 GPT-4o 和 Gemini 2.0 Flash 描述能力相比。"
+      }
+    },
+    {
+      "arxiv_id": "2503.18244",
+      "title": "CustomKD: Customizing Large Vision Foundation for Edge Model Improvement via Knowledge Distillation",
+      "should_recall": true,
+      "gold": {
+        "method": "让大视觉基础模型教师的特征先适配到学生结构，再向 MobileNetV3 等边缘模型蒸馏，以缓解教师—学生容量和架构差异。",
+        "datasets": ["OfficeHome", "DomainNet", "CIFAR-100", "ImageNet"],
+        "results": "在无标签域适应、少标签半监督学习等场景显著提升边缘模型，并在 OfficeHome、DomainNet 及低标注 CIFAR-100/ImageNet 上达到新的领先结果。"
+      }
+    },
+    {
+      "arxiv_id": "2507.07015",
+      "title": "MST-Distill: Mixture of Specialized Teachers for Cross-Modal Knowledge Distillation",
+      "should_recall": true,
+      "gold": {
+        "method": "使用跨模态和多模态专家教师的混合模型，并通过实例级路由动态选择蒸馏路径；额外训练 masking 模块抑制模态差异和知识漂移。",
+        "datasets": ["CMU-MOSEI", "MELD", "AVE", "VGGSound", "multimodal distillation benchmarks"],
+        "results": "在视觉、音频和文本组成的五类多模态数据集上显著超过既有跨模态知识蒸馏方法，证明专门教师组合比单一静态教师更有效。"
+      }
+    },
+    {
+      "arxiv_id": "2503.11794",
+      "title": "Semantic-Clipping: Efficient Vision-Language Modeling with Semantic-Guidedd Visual Selection",
+      "should_recall": true,
+      "gold": {
+        "method": "提出 SEMCLIP，利用文本语义定位图像关键区域并选择视觉 token，不需重新训练 VLM，同时将文本信号注入视觉编码以减少裁剪带来的冗余。",
+        "datasets": ["VQAv2", "GQA", "TextVQA", "V*", "POPE", "MMBench", "ScienceQA"],
+        "results": "在 LLaVA-1.5-7B 上七个基准平均提升 3.3%，在细粒度理解基准 V* 上提升 5.3%，并降低多裁剪输入的 token 和计算开销。"
+      }
+    },
+    {
+      "arxiv_id": "2508.04469",
+      "title": "FrEVL: Leveraging Frozen Pretrained Embeddings for Efficient Vision-Language Understanding",
+      "should_recall": true,
+      "gold": {
+        "method": "研究冻结视觉和文本预训练 embedding 是否足以支持多模态判别任务，仅训练轻量融合模块而不更新大规模基础编码器。",
+        "datasets": ["VQAv2", "GQA", "NLVR2", "SNLI-VE"],
+        "results": "仅训练 6840 万参数即可达到标准基准 SOTA 的 85%–95%；把 embedding 提取成本计入后，整体加速 2.3 倍、能耗降低 52%。"
+      }
+    },
+    {
+      "arxiv_id": "2505.08971",
+      "title": "Prioritizing Image-Related Tokens Enhances Vision-Language Pre-Training",
+      "should_recall": true,
+      "gold": {
+        "method": "提出 PRIOR，用纯文本参考 LLM 估计每个 caption token 对视觉输入的依赖程度，并对视觉相关 token 的 next-token loss 进行差异化加权。",
+        "datasets": ["COCO", "MME", "MMBench", "VQAv2"],
+        "results": "在带视觉编码器和无视觉编码器的 LVLM 中分别取得约 19% 和 8% 的平均相对提升，并表现出优于普通 NTP 的规模扩展趋势。"
+      }
+    },
+    {
+      "arxiv_id": "2512.12701",
+      "title": "Efficient Vision-Language Reasoning via Adaptive Token Pruning",
+      "should_recall": true,
+      "gold": {
+        "method": "在视觉—语言接口加入轻量 ATP 门控模块，融合 ViT CLS 注意力和 CLIP 图文相似度，为每个输入动态保留 top-K 视觉 token。",
+        "datasets": ["VQAv2", "GQA", "COCO", "POPE"],
+        "results": "在 BLIP-2、LLaVA 和 Flamingo 等骨干上约减少 40% 推理 FLOPs、端到端延迟加速约 1.5 倍，同时准确率损失低于 1%。"
+      }
+    },
+    {
+      "arxiv_id": "2602.00653",
+      "title": "Non-Contrastive Vision-Language Learning with Predictive Embedding Alignment",
+      "should_recall": true,
+      "gold": {
+        "method": "NOVA 用图像视图预测冻结文本编码器 embedding，并以 Sketched Isotropic Gaussian Regularization 约束分布，避免负样本、动量编码器和 stop-gradient。",
+        "datasets": ["MIMIC-CXR", "CheXpert", "NIH ChestX-ray14"],
+        "results": "在三个胸部 X 光零样本分类数据集上超过多种对比学习基线，训练目标更简单且重复实验稳定性显著更高。"
+      }
+    },
+    {
+      "arxiv_id": "2603.01096",
+      "title": "Unified Vision-Language Modeling via Concept Space Alignment",
+      "should_recall": true,
+      "gold": {
+        "method": "提出 V-SONAR，将视觉编码器表示后处理对齐到支持 1500 种文本语言和 177 种语音语言的 SONAR 概念空间，并以统一潜表示训练 V-LCM。",
+        "datasets": ["DREAM-1K", "PE-VIDEO", "multilingual image/video captioning", "multilingual VQA"],
+        "results": "视频描述 BLEU 在 DREAM-1K 上为 23.9（对比 19.6），PE-VIDEO 上为 39.0（对比 30.0）；在 62 种语言中的 61 种显著超过既有 VLM。"
+      }
+    },
+    {
+      "arxiv_id": "2604.03231",
+      "title": "CoME-VL: Scaling Complementary Multi-Encoder Vision-Language Learning",
+      "should_recall": true,
+      "gold": {
+        "method": "融合 CLIP 对比视觉编码器与 DINO 自监督编码器，通过熵引导多层聚合、正交投影和 RoPE 跨注意力生成紧凑视觉 token。",
+        "datasets": ["RefCOCO", "MMBench", "VQAv2", "GQA", "ScienceQA"],
+        "results": "视觉理解任务平均提升 4.9%，定位任务平均提升 5.4%，并在 RefCOCO 检测上达到领先性能。"
+      }
+    },
+    {
+      "arxiv_id": "2603.17024",
+      "title": "HopChain: Multi-Hop Data Synthesis for Generalizable Vision-Language Reasoning",
+      "should_recall": true,
+      "gold": {
+        "method": "构造由实例、集合或条件逐跳依赖组成的多跳视觉语言问题，最终答案保持为可验证的明确数值，用于 RLVR 训练长链推理 VLM。",
+        "datasets": ["STEM and Puzzle benchmarks", "General VQA", "Text Recognition", "Document Understanding", "Video Understanding"],
+        "results": "在 24 个基准上两个模型均有 20 个基准提升；将多跳问题替换为半链或单跳后平均分从 70.4 降至 66.7 和 64.3，显示多跳数据具有广泛泛化性。"
+      }
+    },
+    {
+      "arxiv_id": "2502.13487",
+      "title": "Transferring Textual Preferences to Vision-Language Understanding through Model Merging",
+      "should_recall": true,
+      "gold": {
+        "method": "不重新训练视觉奖励模型，而是将文本奖励模型与 LVLM 进行模型合并，构造视觉语言奖励模型以迁移文本偏好。",
+        "datasets": ["VL-RewardBench", "MM-Vet", "vision-language preference benchmarks"],
+        "results": "合并后的 VLRM 同时优于原 LVLM 的评分能力和单独文本奖励模型，为偏好对齐提供低成本、免训练路径。"
+      }
+    },
+    {
+      "arxiv_id": "2503.20271",
+      "title": "ViLBench: A Suite for Vision-Language Process Reward Modeling",
+      "should_recall": true,
+      "gold": {
+        "method": "系统评测视觉语言输出奖励模型与过程奖励模型，提出要求细粒度逐步视觉推理反馈的 ViLBench，并用树搜索采集过程奖励数据训练小模型。",
+        "datasets": ["ViLBench", "vision-language reasoning benchmarks"],
+        "results": "GPT-4o 加思维链在 ViLBench 上仅 27.3%；利用 7.36 万条过程奖励数据训练 3B 模型后，平均比普通 CoT 提升 3.3%，选择 o1 生成结果时最高提升 2.5%。"
+      }
+    },
+    {
+      "arxiv_id": "2504.20199",
+      "title": "Weaving Context Across Images: Improving Vision-Language Models through Focus-Centric Visual Chains",
+      "should_recall": true,
+      "gold": {
+        "method": "提出 Focus-Centric Visual Chain 与自底向上的 Focus-Centric Data Synthesis，生成包含关键区域选择和推理路径的多图训练数据集 VISC-150K。",
+        "datasets": ["VISC-150K", "seven multi-image benchmarks"],
+        "results": "在两种不同 VLM 架构的七个多图基准上分别取得平均 3.16% 和 2.24% 提升，同时不损害通用单图视觉语言能力。"
+      }
+    },
+    {
+      "arxiv_id": "2506.13888",
+      "title": "VL-GenRM: Enhancing Vision-Language Verification via Vision Experts and Iterative Training",
+      "should_recall": true,
+      "gold": {
+        "method": "利用视觉专家、思维链解释和基于 margin 的拒绝采样迭代清洗偏好数据，缓解视觉语言奖励模型的自举困境、模态偏差和错误负例放大。",
+        "datasets": ["VL-RM benchmarks", "hallucination detection benchmarks", "multimodal reasoning benchmarks"],
+        "results": "迭代训练后的验证器在幻觉检测和多模态推理上超过既有视觉语言奖励模型，并改善结构化批评质量。"
+      }
+    },
+    {
+      "arxiv_id": "2506.18985",
+      "title": "GLIMPSE: Holistic Cross-Modal Explainability for Large Vision-Language Models",
+      "should_recall": true,
+      "gold": {
+        "method": "GLIMPSE 融合梯度加权注意力、自适应层传播和相关性加权 token 聚合，为开放式生成同时归因视觉证据与文本信号。",
+        "datasets": ["VQA-X", "GQA", "VQAv2", "human attention benchmarks"],
+        "results": "相比既有归因方法具有更高 faithfulness 和人类注意力对齐度，可用于定位幻觉、偏差及跨模态推理中的系统失配。"
+      }
+    },
+    {
+      "arxiv_id": "2505.15963",
+      "title": "OViP: Online Vision-Language Preference Learning for VLM Hallucination",
+      "should_recall": true,
+      "gold": {
+        "method": "在线采样模型自身回答，依据语义差异识别真实幻觉，并用扩散模型合成负图像，动态构造更贴合模型错误的图文偏好对。",
+        "datasets": ["POPE", "MME", "HallusionBench", "MM-Vet"],
+        "results": "在降低视觉语言幻觉的同时保留核心多模态能力，并相较依赖预定义负样本的方法提高训练效率。"
+      }
+    },
+    {
+      "arxiv_id": "2506.23663",
+      "title": "On the Domain Robustness of Contrastive Vision-Language Models",
+      "should_recall": true,
+      "gold": {
+        "method": "提出 Deepbench，用 LLM 生成贴合部署场景的图像扰动，在无需标注数据的情况下评估对比式 VLM 跨域鲁棒性。",
+        "datasets": ["Deepbench", "six real-world domain shifts", "CLIP robustness benchmarks"],
+        "results": "不同架构和对比 VLM 在六个真实域上的鲁棒性差异显著，说明通用基准高分并不保证专业域稳定性；同时发布开源评估框架。"
+      }
+    },
+    {
+      "arxiv_id": "2504.21226",
+      "title": "MemeBLIP2: A novel lightweight multimodal system to detect harmful memes",
+      "should_recall": true,
+      "gold": {
+        "method": "以 BLIP-2 为核心，增加图像—文本共享空间对齐和融合模块，面向含隐喻、反讽与文化语境的有害 meme 分类。",
+        "datasets": ["PrideMM"],
+        "results": "轻量模型可联合利用图像和短文本中的细粒度线索，在 PrideMM 有害 meme 检测上改善多模态分类表现。"
+      }
+    },
+    {
+      "arxiv_id": "2505.10483",
+      "title": "UniEval: Unified Holistic Evaluation for Unified Multimodal Understanding and Generation",
+      "should_recall": true,
+      "gold": {
+        "method": "提出无需额外模型、图像或人工标注的统一评测框架 UniEval，包含覆盖 81 个细粒度标签的 UniBench 和综合 UniScore 指标。",
+        "datasets": ["UniBench", "unified multimodal understanding and generation models"],
+        "results": "UniBench 比既有基准更具挑战，UniScore 与人工评价更一致，并揭示统一理解—生成模型在指令遵循和生成质量上的新特性。"
+      }
+    },
+    {
+      "arxiv_id": "2501.12948",
+      "title": "DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning",
+      "should_recall": false,
+      "gold": {
+        "method": "用纯强化学习激励纯文本大语言模型形成自反思、验证和动态策略调整等推理模式，不依赖人工标注推理轨迹。",
+        "datasets": ["AIME", "Codeforces", "MATH", "GPQA"],
+        "results": "在数学、竞赛编程和 STEM 等可验证任务上超过监督微调模型，但研究对象是纯文本 LLM，不属于 VLM 或视觉知识蒸馏。"
+      }
+    },
+    {
+      "arxiv_id": "2501.16790",
+      "title": "Exponential Family Attention",
+      "should_recall": false,
+      "gold": {
+        "method": "把自注意力扩展为概率生成模型，以注意力潜变量因子建模离散和连续观测之间的动态条件关系，并给出可辨识性和泛化界。",
+        "datasets": ["US city temperatures", "Instacart", "MovieLens"],
+        "results": "在合成与真实数据上优于既有潜结构模型，但主题是通用概率序列建模，不涉及视觉语言或知识蒸馏。"
+      }
+    },
+    {
+      "arxiv_id": "2501.17162",
+      "title": "CubeDiff: Repurposing Diffusion-Based Image Models for Panorama Generation",
+      "should_recall": false,
+      "gold": {
+        "method": "将多视角扩散模型用于联合生成立方体贴图六个面，把每一面视为普通透视图以生成 360 度全景图。",
+        "datasets": ["Matterport3D", "SUN360", "panorama generation benchmarks"],
+        "results": "无需对应感知注意力层即可生成高分辨率、可文本控制且具良好泛化性的全景图，并取得定性和定量领先结果；主题不是 VLM/KD。"
+      }
+    },
+    {
+      "arxiv_id": "2501.14723",
+      "title": "CodeMonkeys: Scaling Test-Time Compute for Software Engineering",
+      "should_recall": false,
+      "gold": {
+        "method": "针对 SWE-bench 让 LLM 迭代修改代码并同时生成和运行测试，通过串行与并行轨迹扩展测试时计算，再用投票和专门选择轨迹筛选补丁。",
+        "datasets": ["SWE-bench Verified"],
+        "results": "约 2300 美元预算解决 57.4% 的 SWE-bench Verified 问题；组合已有提交后达到 66.2%，但主题是软件工程代理而非视觉语言或知识蒸馏。"
+      }
+    }
+  ]
+}

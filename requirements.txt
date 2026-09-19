@@ -1,0 +1,34 @@
+# ============ 文献综述自动化 Agent 依赖 ============
+# 安装：pip install -r requirements.txt  （Python 3.11+）
+
+# ---- LLM API ----
+openai>=1.40
+python-dotenv>=1.0
+
+# ---- Agent 编排 ----
+langgraph>=0.2
+langchain-core>=0.3
+
+# ---- 论文检索 ----
+arxiv>=2.1
+requests>=2.31
+
+# ---- PDF 解析 ----
+pymupdf>=1.24
+
+# ---- 结构化校验 ----
+jsonschema>=4.20
+
+# ---- 工程工具 ----
+tenacity>=8.0            # 统一重试装饰器（指数退避）
+pytest>=8.0               # 单元测试
+
+# ---- Demo（阶段 3）----
+gradio>=4.0
+
+# ---- 可选：本地 embedding（阶段 2 去重/聚类用，需 GPU 或可接受 CPU 慢）----
+# sentence-transformers>=3.0
+# chromadb>=0.5
+
+# ---- 可选：MCP server（阶段 2 加分项）----
+# mcp>=1.0
