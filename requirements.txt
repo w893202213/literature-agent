@@ -30,5 +30,5 @@ gradio>=4.0
 # sentence-transformers>=3.0
 # chromadb>=0.5
 
-# ---- 可选：MCP server（阶段 2 加分项）----
-# mcp>=1.0
+# ---- 可选：MCP server（对外暴露工具链的标准协议通道）----
+mcp>=1.0

@@ -96,6 +96,19 @@ python main.py eval --recall                                   # 召回率评测
 
 > 项目配套有《面试亮点》与《问题链路与修复》两份文档（开发过程沉淀的实战踩坑与取舍结论）。
 
+## 🔌 MCP Server（对外开放通道）
+
+工具链既可在项目内被 LangGraph 直调（编排式），也以 **MCP 标准协议**暴露给任意
+MCP client（Claude Desktop / 自研 Agent）：
+
+```bash
+python -m mcp_server.server        # stdio 传输
+```
+
+注册工具：`search_openalex` / `search_arxiv` / `fetch_pdf` / `parse_pdf` /
+`extract_paper_info` / `normalize_title`（6 个）。
+取舍：直调零开销、类型安全（项目内主用）；MCP 跨进程/跨语言/标准协议（对外）。
+
 | 设计 | 一句话 |
 |---|---|
 | 四层防线 | 低温→few-shot→Schema 校验→重试兜底，LLM 输出不可信的分层防御 |
